@@ -18,3 +18,11 @@ include_directories(
 install(DIRECTORY launch rviz
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
+
+if (CATKIN_ENABLE_TESTING)
+  find_package(roslaunch REQUIRED)
+  roslaunch_add_file_check(launch/view_ackerman_model.launch)
+  roslaunch_add_file_check(launch/view_four_diff_model.launch)
+  roslaunch_add_file_check(launch/view_navigation.launch)
+  roslaunch_add_file_check(launch/view_robot.launch)
+endif()
